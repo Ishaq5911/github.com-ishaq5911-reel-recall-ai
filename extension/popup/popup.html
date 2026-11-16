@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReelRecall AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-circle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </div>
+        <div>
+          <h1 class="title">ReelRecall <span class="ai-badge">AI</span></h1>
+          <p class="subtitle">Saved Posts Finder</p>
+        </div>
+      </div>
+      <div class="status-indicator online" id="statusIndicator">
+        <span class="status-dot"></span>
+        <span class="status-text" id="statusText">Active</span>
+      </div>
+    </header>
+
+    <!-- Stats Card -->
+    <section class="stats-card">
+      <div class="stat-item">
+        <span class="stat-value" id="indexedCount">0</span>
+        <span class="stat-label">Saved Reels</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="creatorCount">0</span>
+        <span class="stat-label">Creators</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="lastSyncTime">Just now</span>
+        <span class="stat-label">Last Saved</span>
+      </div>
+    </section>
+
+    <!-- Search Input -->
+    <section class="search-section">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="popupSearchInput" placeholder="Search context, creator, date..." autocomplete="off">
+        <kbd class="shortcut-pill">Ctrl+K</kbd>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="actions-group">
+      <!-- Auto-Harvest All -->
+      <button class="btn btn-harvest" id="btnAutoHarvest">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+        </svg>
+        <span>Auto-Harvest All Reels (Scroll)</span>
+      </button>
+
+      <!-- Import JSON Export -->
+      <label class="btn btn-secondary btn-file-label" id="lblImportJson">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+        </svg>
+        <span>Import saved_posts.json</span>
+        <input type="file" id="popupFileInput" accept=".json" style="display:none;" />
+      </label>
+
+      <!-- Go to Saved Posts -->
+      <button class="btn btn-secondary" id="btnOpenInstagramSaved">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Open Instagram Saved Page</span>
+      </button>
+    </section>
+
+    <!-- Pro Tip -->
+    <section class="tips-box">
+      <div class="tip-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span>Date & Time Filter</span>
+      </div>
+      <p class="tip-body">Press <kbd>Ctrl + K</kbd> on Instagram to search reels saved <em>This Week</em>, <em>This Month</em>, or sorted by exact saved date.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer-tag">Date & Time Aware Assistant</span>
+      <span class="version-label">v1.2.0</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
